@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head> Title </head>
+<body>
+<script>
+
+
+(
+   //   You are given a set of rectangles (width x height) as nested arrays
+   // Order them by their area, then by width (descending)
+
+
+  function sortRectangles(rectsData){
+
+    function createRec(width,height){
+      let rect = {
+        width: width,
+        height: height,
+        area: () => rect.width + rect.height,
+        compareTo: function(other) {
+          let result = other.area() - rect.area();
+          return result || (other.width - rect.width );
+        }
+      }
+      return rect;
+     }
+
+    let rects = [];
+    for (let [width,height] of rectsData){
+      let rect = createRec(width,height);
+      rects.push(rect);
+    }
+    rects.sort((a,b) => a.compareTo(b));
+    return rects;
+
+    // for (rect of rects){
+    //   console.log(rect.width + ' / ' + rect.height + '\n');
+    // }
+
+  }
+
+
+)([[3, 4], [5, 3], [3, 4], [3, 5], [12, 1]]);
+
+
+</script>
+<p> Degub </p>
+</body>
+</html>

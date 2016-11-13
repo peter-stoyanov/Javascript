@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head> Title </head>
+<body>
+<script>
+
+
+(
+  //Using a reducer function, print its: sum, min, max, product, join
+  // Sum = 20
+  // Min = 2
+  // Max = 10
+  // Product = 300
+  // Join = 23105
+
+  function calcAggregates(arr) {
+
+       function reduce(arr, func) {
+         let result = arr[0];
+         for (let nextElement of arr.slice(1))
+           result = func(result, nextElement);
+         return result;
+       }
+
+
+  console.log("Sum = " +
+    reduce(arr, (a,b) => Number(a) + Number(b)));
+  console.log("Min = " +
+    reduce(arr, (a,b) => Math.min(a, b)));
+     console.log("Max = " +
+      reduce(arr, (a,b) => Math.max(a, b)));
+      console.log("Product = " +
+      reduce(arr, (a,b) => Number(a) * Number(b)));
+  console.log("Join = " +
+    reduce(arr, (a,b) => '' + a + b));
+}
+
+
+
+)(['2', '3', '10', '5']);
+
+
+</script>
+<p> Degub </p>
+</body>
+</html>

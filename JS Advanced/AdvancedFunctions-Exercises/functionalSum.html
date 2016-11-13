@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head> Title </head>
+<body>
+<script>
+
+
+(
+     // Write a function that adds a number passed to it to an internal sum
+     // and returns itself with its internal sum set to the new value, so
+     // it can be chained in a functional manner. f(2)(3)(10)
+function functionalSum(n){
+
+     let f = (function () {
+         let total = 0;
+         return function sum(a) {
+             total += a;
+             sum.toString = () => total;
+             return sum;
+         }
+})();
+
+     return f(n);
+
+}
+)();
+
+
+</script>
+<p> Degub </p>
+</body>
+</html>

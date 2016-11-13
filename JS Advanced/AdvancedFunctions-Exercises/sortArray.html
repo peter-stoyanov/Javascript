@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head> Title </head>
+<body>
+<script>
+
+
+(
+  //solve([14, 7, 17, 6, 8], 'asc');
+  //solve([14, 7, 17, 6, 8], 'desc');
+  //sort numeric array
+
+
+  function sortNumericArray(arr, sorttype) {
+
+       let sortingModule = (function (arr){
+
+            var result = [];
+
+          var asc = function(arr){
+               result = arr.sort((a,b) => a - b);
+               return result;
+          }
+
+          var desc = function(arr){
+               result = arr.sort((a,b) => b - a);
+               return result;
+          }
+
+          return {
+               asc: asc,
+               desc: desc
+          }
+
+     })();
+
+     if (sorttype == 'asc') {
+          var sorted = sortingModule.asc(arr);
+          return sorted;
+     }else if (sorttype == 'desc') {
+          var sorted = sortingModule.desc(arr);
+          return sorted;
+     }
+
+}
+
+
+
+)([14, 7, 17, 6, 8], 'asc');
+
+
+</script>
+<p> Degub </p>
+</body>
+</html>

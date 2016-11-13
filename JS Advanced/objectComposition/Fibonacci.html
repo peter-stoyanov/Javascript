@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head> Title </head>
+<body>
+<script>
+
+
+(
+  //find first 'n' Fibonacci numbers
+  // k = (k - 1) + (k - 2)
+  //**********************************
+
+  function fibonacci(n){
+          'use strict';
+          let fib = (() => {
+               let f0 = 0, f1 = 1;
+               return () => {
+                    let oldf0 = f0;
+                    let oldf1 = f1;
+                    f0 = oldf1;
+                    f1 = oldf0 + oldf1;
+                    return oldf1;
+               }
+
+          })();
+
+     let fibNums = [];
+     for ( let i = 1; i <= n; i++){
+          fibNums.push(fib());
+     }
+     return fibNums;
+
+     // for ( let item of fibNums){
+     //      console.log(item + '\n');
+     // }
+ }
+
+ //input
+ //**********************************
+)(15);
+
+
+</script>
+<p> Degub </p>
+</body>
+</html>

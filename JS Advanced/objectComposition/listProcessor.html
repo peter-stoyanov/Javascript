@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head> Title </head>
+<body>
+<script>
+
+
+(
+// Using a closure (IIFE holding a state inside it) implement a command execution
+//  engine to process list commands like shown below
+//  add hello
+//  add again
+//  remove hello
+//  add again
+//  print
+
+
+function processCommands(commands) {
+
+     let commandProcessor = (function() {
+    let list = [];
+    return {
+         add: (newItem) => list.push(newItem),
+         remove: (item) =>
+           list = list.filter(x => x != item),
+         print: () => console.log(list)
+    }
+    })();
+
+     for (let cmd of commands) {
+       let [cmdName, arg] = cmd.split(' ');
+       commandProcessor[cmdName](arg);
+     }
+
+}
+
+)(['add hello', 'add again', 'remove hello', 'add again', 'print']);
+
+
+</script>
+<p> Degub </p>
+</body>
+</html>

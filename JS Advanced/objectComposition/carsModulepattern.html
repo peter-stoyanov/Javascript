@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head> Title </head>
+<body>
+<script>
+
+
+(
+     //working correctly!
+     // Write a JS function that can perform commands which create and modify objects :
+     // create c1
+     // create c2 inherit c1
+     // set c1 color red
+     // set c2 model new
+     // print c1
+     // print c2
+
+     function createCar(commands){
+          var map = new Map();
+          var carManager = ( function() {
+
+               var create = function ([name, ,parent]) {
+                    parent = parent ? map.get(parent) : null;
+                    var newObj = Object.create(parent);
+                    map.set(name, newObj);
+                    return newObj;
+               };
+               
+               var set = function ([name, key, value]) {
+                         var obj = map.get(name);
+                         obj[key] = value;
+               };
+
+               var print = function ([name]) {
+                    var obj = map.get(name), objects = [];
+                    for(var key in obj) {
+                         objects.push(`${key}:${obj[key]}`);
+                    }
+                    console.log(objects.join(', '));
+               };
+
+               return {
+                    create: create,
+                    set: set,
+                    print: print
+               };            
+          })();
+
+          for (var command of commands){
+               var commandParameters = command.split(' ');
+               var action = commandParameters.shift();
+               carManager[action](commandParameters);
+          }
+     }
+
+
+)(['create c1','create c2 inherit c1','set c1 color red','set c2 model new','print c1','print c2']);
+
+
+</script>
+<p> Degub </p>
+</body>
+</html>

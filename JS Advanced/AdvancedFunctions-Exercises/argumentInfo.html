@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head> Title </head>
+<body>
+<script>
+
+
+(
+     //{argument type}: {argument value} - by order of appearance
+     //{type} = {count} - desc count and then by order of appearance
+
+     function myFunc(args) {
+          var summary = {}
+          for (let i = 0; i < arguments.length; i++){
+               var obj = arguments[i];
+               var type = typeof obj;
+               console.log(type + ': ' + obj);
+               //add up the type-count data into an object (kind of assoc.array)
+               ;
+               if (!summary[type]) {
+                    summary[type] = 1;
+               }else {
+                    summary[type]++;
+               }
+               //shorter syntax github:
+               //passedArgs[argType] != undefined ? passedArgs[argType]++ : passedArgs[argType] = 1;
+          };
+          //transfer the object key-values to array for sorting
+          var tuples = [];
+          for (var key in summary) {
+               tuples.push([key, summary[key]]);
+          };
+          tuples.sort(function(a, b) {
+              a = a[1];
+              b = b[1];
+
+             return a > b ? -1 : (a < b ? 1 : 0);
+        });
+
+        //return tuples;
+        for (var i = 0; i < tuples.length; i++) {
+              var key = tuples[i][0];
+              var value = tuples[i][1];
+             console.log(key + ' = ' + value);
+        }
+
+
+}
+
+)('cat', 42, 15, function () { console.log('Hello world!'); });
+
+
+</script>
+<p> Degub </p>
+</body>
+</html>
