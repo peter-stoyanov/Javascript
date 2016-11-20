@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+<h1>Phonebook</h1>
+<ul id="phonebook"></ul>
+<button id="btnLoad">Load</button>
+
+<h2>Create Contact</h2>
+Person: <input type="text" id="person" />
+<br>
+Phone: <input type="text" id="phone" />
+<br>
+<button id="btnCreate">Create</button>
+<script>
+     $(function() {
+          $('#btnLoad').click(LoadContacts);
+
+          function LoadContacts(){
+               //clear the old data
+               //$('#phonebook').empty();
+               let baseURL = "https://phonebook-a2a8c.firebaseio.com/";
+               // $.get(baseURL)
+               // // $.get(baseURL + '.json')
+               //      .then(displayContacts)
+               //      .catch(displayError);
+               $.ajax({
+            method: 'GET',
+            url: baseURL + '.json',
+            success: displayContacts,
+            error: displayError
+        });
+          }
+
+          function displayContacts(contacts) {
+               //alert(JSON.stringify(contacts));
+               for (let key in contacts){
+                    let person = contacts[key]['person'];
+                    let phone = contacts[key]['phone'];
+                    let $li = $('<li>');
+                    li.text(person + ': ' + phone + ' ');
+                    $('#phonebook').append(li);
+                    li.append($("<a href='#'>[Delete]</a>")
+                     .click(function() { deleteContact(key) }));
+               };//end of for
+          }
+
+          function displayError(){
+               //alert("error");
+               $('#phonebook').append($('<li>Error</li>'));
+          }
+
+
+
+     });//end of document ready
+
+</script>
+
+</body>
+</html>
