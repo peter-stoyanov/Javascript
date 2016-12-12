@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Messenger</title>
+  <style>
+    label { display: inline-block; width: 5em; }
+    #author, #content { width: 30em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<div id="main">
+  <textarea id="messages" cols="80" rows="12" disabled="true"></textarea>
+  <div id="controls">
+    <label for="author">Name: </label><input id="author" type="text"><br>
+    <label for="content">Message: </label><input id="content" type="text">
+    <input id="submit" type="button" value="Send">
+    <input id="refresh" type="button" value="Refresh">
+  </div>
+</div>
+<script>
+    function attachEvents() {
+         const apiUrl = 'https://messenger-addf3.firebaseio.com/';
+         let $chat = $('#messages');
+         $('#submit').on('click', addMessages);
+         $('#refresh').on('click', refreshMess);
+
+          function addMessages(){
+               let author = $('#author').val().trim();
+        let content = $('#content').val().trim();
+        if (author != '' && content != '') {
+            let timestamp = Date.now();
+            $.ajax({
+                method: 'POST',
+                data: JSON.stringify({
+                    author,
+                    content,
+                    timestamp
+                }),
+                url: apiUrl + '.json',
+                success: function () {
+                    $('#content').val('');
+                    getMessages();
+                }
+            });
+        }
+          }
+
+          function refreshMess(){
+               $.ajax({
+                   method: 'GET',
+                   url: apiUrl + '.json',
+                   success: renderMess
+               });
+          }
+
+          function renderMess(data){
+               $chat.val('');
+               let sortedMessages = [...Object.keys(data)]
+                    .sort((mA, mB) => data[mA].timestamp - data[mB].timestamp)
+                    .map(m => data[m]);
+
+                  for (let msg of sortedMessages) {
+                      $chat.val($chat.val() + `${msg.author}: ${msg.content}\n`);
+                      $chat.text($chat.text() + `${msg.author}: ${msg.content}\n`); // JUDGE WTF?????
+                  }
+               // $chat.empty();
+               // let keys = Object.keys(data);
+               // for (let key of keys){
+               //      let msg = data[key]; //this is the json obj corresp. to every ID in firebase
+               //      $chat.val($chat.val() + `${msg.author}: ${msg.content}\n`);
+               // }
+          }
+
+
+    };//end attach event
+</script>
+</body>
+</html>
