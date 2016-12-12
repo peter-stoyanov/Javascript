@@ -12,4 +12,4 @@ function reorderArray(nums) {
     return res.join('\n');
 }
 
-console.log(reorderArray(['7', '-2', '8', '9']));
+console.log(reorderArray(['8', '-2', '7', '9']));

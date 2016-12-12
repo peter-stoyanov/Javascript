@@ -1,4 +1,8 @@
 function calculateTriangleArea([sideA, sideB, sideC]) {
+
+    //Write a JS function that calculates a triangle’s area by its 3 sides
+    //Heron formula
+
     [sideA, sideB, sideC] = [sideA, sideB, sideC].map(Number);
     let semiPerimeter = (sideA + sideB + sideC) / 2;
 

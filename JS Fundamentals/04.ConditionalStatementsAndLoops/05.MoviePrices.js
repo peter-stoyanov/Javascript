@@ -1,4 +1,7 @@
 function getMoviePrice(input) {
+
+    //Write a JS function that calculate the ticket price by movie title and day of week
+
     let [title, dayOfWeek] = [input[0].toLowerCase(), input[1].toLowerCase()];
     switch (title) {
         case 'the godfather':

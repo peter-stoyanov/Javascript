@@ -1,4 +1,7 @@
 function composeTag([location, altText]) {
+
+    //Write a JS function that composes an HTML image tag
+
     return `<img src="${location}" alt="${altText}">`;
 }
 

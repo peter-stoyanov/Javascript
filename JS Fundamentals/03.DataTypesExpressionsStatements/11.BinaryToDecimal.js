@@ -1,4 +1,7 @@
 function binaryToDecimal([binaryNumber]) {
+
+    //Write a JS function that reads an 8-bit binary number and converts it to a decimal
+
     let decimal = 0;
     let pow = 0;
     for (let i = binaryNumber.length - 1; i >= 0; i--) {

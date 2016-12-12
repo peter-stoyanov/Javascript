@@ -1,4 +1,7 @@
 function findConeDetails([radius, height]) {
+
+    //Write a JS function to calculate a cone’s volume and surface area by given height and radius at the base.
+
     [radius, height] = [radius, height].map(Number);
     let s = Math.sqrt(radius * radius + height * height);
     let volume = Math.PI * radius * radius * height / 3;

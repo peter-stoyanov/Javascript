@@ -1,4 +1,8 @@
 function calculateCompoundInterest([principleSum, interestRate, period, totalTimeSpan]) {
+
+    //Write a JS function that calculates the total accumulated value for a monetary deposit by
+    // given principal sum, interest rate, compounding frequency and overall length.
+
     [principleSum, interestRate, period, totalTimeSpan] = [principleSum, interestRate, period, totalTimeSpan].map(Number);
 
     let n = 12 / period;

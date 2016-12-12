@@ -9,6 +9,7 @@ function cookingByNumbers(inputs) {
     let num = Number(inputs[0]);
     inputs = inputs.splice(1, inputs.length - 1);
 
+
     for (let operation of inputs) {
         switch (operation) {
             case 'chop':

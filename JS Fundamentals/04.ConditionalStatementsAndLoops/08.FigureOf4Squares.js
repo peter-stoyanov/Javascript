@@ -1,4 +1,7 @@
 function generateFigure([size]) {
+
+    //Write a JS function to print a figure of 4 squares of size n like shown in the examples below.
+
     size = Number(size);
     let output = '';
 

@@ -1,4 +1,7 @@
 function calculateBestDistance([speedA, speedB, time]) {
+
+    //The first two elements are the speeds to the two objects in km/h and the third element is the time in seconds
+
     [speedA, speedB, time] = [speedA, speedB, time].map(Number);
     let timeInHours = time / 60 / 60;
     let distanceA = (speedA * 1000) * timeInHours;

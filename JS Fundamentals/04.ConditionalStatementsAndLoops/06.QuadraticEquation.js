@@ -1,5 +1,8 @@
 // https://www.mathsisfun.com/algebra/quadratic-equation.html
 function quadraticEquation(input) {
+
+    //Write a JS function to solve a quadratic equation by given in standard form as its coefficients: a, b, c
+
     let [a, b, c] = input.map(Number);
     let discriminant = (b * b)  - (4 * a * c);
     if (discriminant < 0) {

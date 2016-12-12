@@ -1,4 +1,7 @@
 function calculateAreaAndPerimeter([sideA, sideB]) {
+
+    //Write a JS function that calculates the area and perimeter of a rectangle by given two sides
+
     [sideA, sideB] = [sideA, sideB].map(Number);
     
     return `${sideA * sideB}\n${sideA + sideA + sideB + sideB}`;

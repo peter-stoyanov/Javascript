@@ -1,4 +1,7 @@
 function calculateDistanceIn3d([aX, aY, aZ, bX, bY, bZ]) {
+
+    //Write a JS function that calculates the distance between the two points in 3D by given coordinates
+
     [aX, aY, aZ, bX, bY, bZ] = [aX, aY, aZ, bX, bY, bZ].map(Number);
     let xRes = bX - aX;
     let yRes = bY - aY;

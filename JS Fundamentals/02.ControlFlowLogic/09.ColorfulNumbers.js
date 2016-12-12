@@ -1,4 +1,8 @@
 function generateColorfulNumbers(number) {
+
+    //Write a JS function to print the numbers from 1 to n.
+    // Return a string holding HTML list with the odd lines in blue and even lines in green
+
     let html = '<ul>\n';
     for (let i = 1; i <= number; i++) {
         let color = 'blue';
@@ -8,4 +12,3 @@ function generateColorfulNumbers(number) {
     html += '</ul>';
     return html;
 }
-

@@ -1,4 +1,7 @@
 function food(input) {
+
+    //Write a JS function to print "fruit", "vegetable" or "unknown" depending on the input string.
+
     let word = input[0];
     switch (word) {
         case 'banana':

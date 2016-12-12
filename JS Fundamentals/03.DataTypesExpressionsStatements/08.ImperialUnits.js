@@ -1,4 +1,7 @@
 function inchesToFeetInches([inches]) {
+
+    //Write a JS function that converts from inches to feet and inches
+
     return `${parseInt((inches / 12).toString())}'-${inches % 12}"`;
 }
 
