@@ -1,6 +1,8 @@
 function townsToJSON(input) {
     let regEx = /\s*\|+\s*/g;
-    let outputTitles = input.shift().split(regEx).filter(t => t != '');
+    let outputTitles = input.shift();
+    outputTitles = outputTitles.split(regEx);
+    outputTitles = outputTitles.filter(t => t != '');
     let towns = [];
     for (let townData of input) {
         townData = townData.split(regEx).filter(t => t != '');
